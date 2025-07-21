@@ -97,7 +97,9 @@ In order to use there, you can simply add thise snippet:
 
 **Custom Instructions for Copilot Instructions**
 
-TBD
+In order to use the **copilot-instructions.md**, the main instruction inside the **.github** folder, use the content inside the `copilot-instructions.template.md` file to create the `.github/copilot-instructions.md` file.
+
+Explain how it works and that is possible to reference other md files there.
 
 **Custom Prompts**
 
