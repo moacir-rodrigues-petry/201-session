@@ -158,6 +158,8 @@ And that's it! You have successfully created a remote repository and pushed your
 
 Now, go to the GitHub repository to see the feaure branch created and see how GitHub Copilot can help to effortlessly generate detailed pull request descriptions that enhance collaboration and clarity in your projects.
 
+Show close to the **Description**, when creating the PR, to click on Copilot Icon, and "Generate Summary".
+
 ---
 
 ### Module 6 - Implementing GitHub Actions
