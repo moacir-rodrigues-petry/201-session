@@ -107,9 +107,9 @@ TBD
 
 ### Module 4 - Implementing Automated Test Coverage
 
-After the backend and frontend applications are created, you can implement a comprehensive testing setup for the users-api backend application using Jest and Supertest.
+After the backend and frontend applications being created, you can implement a comprehensive testing setup for the users-api backend application using Jest and Supertest.
 
-Just use this prompt to the GitHub Copilot Agent Mode:
+Just use this prompt to the GitHub Copilot Agent Mode create the entire testing setup:
 
 ```
 
@@ -131,7 +131,8 @@ Include proper test organization with describe/it blocks and implement both unit
 
 ### Module 5 - Creating a Remote Repository and Pushing Code
 
-Before implementing GitHub Actions, create a GitHub repository. Now open the terminal in this root directory and run the following command to add a remote repository: `git remote add 201-session https://github.com/user/repo-created.git`
+Before implementing the CI/CD with GitHub Actions, create a GitHub repository.
+Now open the terminal in this root directory and run the following command to add a remote repository: `git remote add 201-session https://github.com/user/repo-created.git`
 
 List the remote repositories to ensure the remote repository is added correctly:
 
@@ -139,9 +140,23 @@ List the remote repositories to ensure the remote repository is added correctly:
 git remote -v
 ```
 
-Before we push the code to the remote repository, let's use the GitHub Copilot Commit Message Generate resource. Add all files/folders created from users-api and users-frontend directories. Go to the Source Control tab in your IDE and click on the "Generate Commit Message with Copilot" button. Right away, Copilot will generate a commit message for you. Review the message and click on the "Commit" button 🎉
+Before we push the code to the remote repository, let's use the **GitHub Copilot Commit Message Generate** resource. To do that, follow these steps:
+
+👉🏼 Generate a new feature branch, name is as wanted, example: `git checkout -b FEA-1234`
+
+👉🏼 Add all **files/folders** created from **users-api** and **users-frontend** directories to the stage changes using git.
+
+👉🏼 Go to the Source Control tab in your IDE and click on the "Generate Commit Message with Copilot" button.
+
+👉🏼 Right away, Copilot will generate a commit message for you.
+
+Review the message and click on the "Commit" button 🎉
 
 Push the code to the remote repository: `git push -u 201-session main`
+
+And that's it! You have successfully created a remote repository and pushed your code to it. Now, let's move on to the next module where we will implement GitHub Actions for CI/CD.
+
+Now, go to the GitHub repository to see the feaure branch created and see how GitHub Copilot can help to effortlessly generate detailed pull request descriptions that enhance collaboration and clarity in your projects.
 
 ---
 
