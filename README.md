@@ -27,8 +27,12 @@ Attach to the GitHub Copilot Agent Mode the following files to run this command 
 - `.github/instructions/backend-application.instructions.md`
 - `.github/instructions/backend-structure.instructions.md`
 
+Now, use the prompt below to create the backend application:
+
 ```
+
 Create a backend API application using Express.js and TypeScript. Use the @faker-js/faker library to generate mock data and ts-node-dev to run the app. Implement a route at /api/users that responds with a JSON array of 10 fake users. Each user should have the following fields: id, name, username, email, and role. Organize the project using TypeScript best practices, including type definitions and modular structure. Use CORS middleware to allow requests from http://localhost:3001.
+
 ```
 
 ---
@@ -37,11 +41,15 @@ Create a backend API application using Express.js and TypeScript. Use the @faker
 
 Atthach to the GitHub Copilot Agent Mode the following files to run this command below:
 
+Now, use the prompt below to create the backend application:
+
 - `.github/instructions/root-path.instructions.md`
 - `.github/instructions/frontend-application.instructions.md`
 
 ```
+
 Create a React.js frontend application using TypeScript that runs on port 3001 and fetches user data from http://localhost:3000/api/users. Define a User interface that reflects the backend data structure, and organize the project with a modular folder structure, including separate directories for components and types. Ensure the application includes proper error handling and loading states to deliver a smooth and reliable user experience. Use beautiful and modern CSS for styling to create a clean, responsive, and modern UI.
+
 ```
 
 ---
@@ -52,13 +60,59 @@ Create a React.js frontend application using TypeScript that runs on port 3001 a
 
 ---
 
-### Module 3 - Implementing Automated Test Coverage
+### Module 3 - Custom Instructions
+
+Reference: https://code.visualstudio.com/docs/copilot/copilot-customization
+
+In order to show the first case of custom instructions working on, let's create a file named `.github/instructions/variable-names.instructions.md` in the root directory of this repository. This file will contain the custom instructions for **camelCase** variable names.
+
+```markdown
+---
+applyTo: "*.ts"
+---
+
+# Variable Names Rules
+
+Apply this rule to all TypeScript files in this repository:
+
+- Make sure to use camelCase for variable names.
+- Enforce to use camelCase for variable names when creating new variables, changing existing variables, or refactoring code.
+```
+
+Prompt this to the GitHub Copilot Ask Mode: `create a todo list into my server.ts`
+
+Seeing the results and proving that the variable names are in **camelCase**, now let's change the file to use **snake_case** variable names, test the opposite case of the previous one.
+
+**Custom Instructions on VS Code Settings**
+
+In order to use there, you can simply add thise snippet:
+
+```json
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use always emoji for commit messages"
+    }
+  ]
+```
+
+**Custom Instructions for Copilot Instructions**
+
+TBD
+
+**Custom Prompts**
+
+TBD
+
+---
+
+### Module 4 - Implementing Automated Test Coverage
 
 After the backend and frontend applications are created, you can implement a comprehensive testing setup for the users-api backend application using Jest and Supertest.
 
 Just use this prompt to the GitHub Copilot Agent Mode:
 
 ```
+
 Create a comprehensive testing setup for the users-api backend application using Jest and Supertest. Implement the following:
 
 1. Configure Jest with TypeScript support using ts-jest
@@ -70,9 +124,12 @@ Create a comprehensive testing setup for the users-api backend application using
    - HTTP status codes are correct
 
 Include proper test organization with describe/it blocks and implement both unit tests and integration tests. Make sure the tests follow best practices like proper setup and teardown. Update the package.json with appropriate test scripts.
+
 ```
 
-### Module 4 - Implementing GitHub Actions
+---
+
+### Module 5 - Creating a Remote Repository and Pushing Code
 
 Before implementing GitHub Actions, create a GitHub repository. Now open the terminal in this root directory and run the following command to add a remote repository: `git remote add 201-session https://github.com/user/repo-created.git`
 
@@ -85,6 +142,10 @@ git remote -v
 Before we push the code to the remote repository, let's use the GitHub Copilot Commit Message Generate resource. Add all files/folders created from users-api and users-frontend directories. Go to the Source Control tab in your IDE and click on the "Generate Commit Message with Copilot" button. Right away, Copilot will generate a commit message for you. Review the message and click on the "Commit" button 🎉
 
 Push the code to the remote repository: `git push -u 201-session main`
+
+---
+
+### Module 6 - Implementing GitHub Actions
 
 Now, let's start from the basics, ask the GitHub Copilot Agent Mode:
 
@@ -106,6 +167,50 @@ Update the ci-test.yml file to reflect the backend app test
 
 With that being created, push the code to the repository and check the Actions tab in your GitHub repository to see the workflow running.
 
+---
+
+### Module 7 - Implementing a new feature
+
+Here we're going to implement a new feature that allows users to view detailed information about each user in the frontend application. This will involve the following changes.
+
 ```
+Create a user profile details page for my user management application. The page should:
+
+- Display when a user is clicked in the main users table
+- Show detailed information about the selected user
+- Have a clean, consistent design with the rest of the application
+- Include a way to navigate back to the users list
+- Be accessible via a route like `/users/:userId`
+
+### Backend
+
+Extend the Express backend API to add a new endpoint for fetching individual user details. I need:
+
+- A new route at `/api/users/:userId` that returns detailed information for a specific user
+- Additional user details beyond what's shown in the list (e.g., address, phone, company, bio)
+- Proper error handling if a user ID doesn't exist
+- TypeScript interfaces for the new data structures
+- Unit tests for the new endpoint
+
+### Frontend
+
+Create a UserProfile React component that displays detailed user information. The component should:
+
+- Use React Router to get the userId parameter from the URL
+- Fetch user details from the API endpoint we created
+- Show a loading state while data is being fetched
+- Display an error message if the user doesn't exist
+- Show the user's profile picture prominently
+- Organize information in a visually appealing card layout
+- Include TypeScript interfaces for props and state
+
+### Navigation
+
+Implement navigation between the users list and the new profile details page:
+
+- Make each row in the users table clickable to navigate to the profile page
+- Add a back button on the profile page to return to the users list
+- Update the React Router configuration to support the new route
+- Ensure the browser history works correctly (back/forward navigation)
 
 ```
