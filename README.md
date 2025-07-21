@@ -101,7 +101,17 @@ TBD
 
 **Custom Prompts**
 
-TBD
+In order to use the custom prompts, use the content inside the `nodejs-version.template.md` file to create the `.github/prompts/nodejs-version.prompt.md` file.
+
+Go to Copilot Agent Mode and use the prompt:
+
+```
+
+/nodejs-version
+
+```
+
+Explain how it works and how can be disable/enable the tools in line 3!
 
 ---
 
@@ -152,7 +162,7 @@ Before we push the code to the remote repository, let's use the **GitHub Copilot
 
 Review the message and click on the "Commit" button 🎉
 
-Push the code to the remote repository: `git push -u 201-session main`
+Push the code to the remote repository: `git push -u 201-session FEA-1234`
 
 And that's it! You have successfully created a remote repository and pushed your code to it. Now, let's move on to the next module where we will implement GitHub Actions for CI/CD.
 
@@ -173,6 +183,8 @@ How does GitHub Actions works?
 ```
 
 If the response provides a good example, save it up into the `.github/workflows/ci-test.yml` file.
+
+🚨 If the response is not quite good, use the template: **ci-test.template.yml**
 
 Now, ask the GitHub Copilot Agent Mode to create a GitHub Actions workflow for the backend application:
 
